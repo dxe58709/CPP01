@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/02 01:48:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/09/12 21:15:25 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/09/12 21:39:10 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ RM = rm -rf
 SRCDIR = srcs
 SRC =   main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		zombieHorde.cpp
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 
