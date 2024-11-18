@@ -13,36 +13,20 @@
 #include <string>
 #include <iostream>
 
-int main() {
-    std::string myString = "HI THIS IS BRAIN";
-    std::string *stringPTR = &myString;
-    std::string &stringREF = myString;
+int main(){
+	const std::string myString = "HI THIS IS BRAIN";
+	const std::string *strPTR = &myString;
+	const std::string &strREF = myString;
 
-    // Print memory addresses
-    std::cout << "Memory address of the string variable: " << &myString << std::endl;
-    std::cout << "Memory address held by stringPTR: " << stringPTR << std::endl;
-    std::cout << "Memory address held by stringREF: " << &stringREF << std::endl;
-    std::cout << "------------------------------------------" << std::endl;
+	std::cout << "[address]" << std::endl;
+	std::cout << "myString: " << &myString << std::endl;
+	std::cout << "strPTR: " << strPTR << std::endl;
+	std::cout << "strREF: " << &strREF << std::endl;
 
-    // Print values
-    std::cout << "Value of the string variable: " << myString << std::endl;
-    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
-    std::cout << "------------------------------------------" << std::endl;
-
-	*stringPTR = "stringPTR";
-
-    std::cout << "Value of the string variable: " << myString << std::endl;
-    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
-    std::cout << "------------------------------------------" << std::endl;
-
-	stringREF = "stringREF";
-
-    std::cout << "Value of the string variable: " << myString << std::endl;
-    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
-    std::cout << "------------------------------------------" << std::endl;
+	std::cout << "[value]" << std::endl;
+	std::cout << "myString: " << myString << std::endl;
+	std::cout << "strPTR: " << *strPTR << std::endl;
+	std::cout << "strREF: " << strREF << std::endl;
 
     return 0;
 }

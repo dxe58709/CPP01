@@ -37,3 +37,8 @@ int main(int argc, char **argv)
 		return (1);
 	}
 }
+
+// __attribute__((destructor)) void end(void)
+// {
+// 	system("leaks -q replace");
+// }

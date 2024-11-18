@@ -14,6 +14,9 @@
 
 int	main(){
 	int n = 10;
+	if (n < 1) {
+		std::cout << "Error: Invalid values." << std::endl;
+	}
 	Zombie *zombies = zombieHorde(n, "Nao");
 	for (int i = 0; i < n; i++)
 		zombies[i].announce();
