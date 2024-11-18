@@ -12,47 +12,35 @@
 
 #include "Sed.hpp"
 
-Sed::Sed(const std::string &filename, const std::string &s1, const std::string &s2) : filename(filename), s1(s1), s2(s2)
-{
-}
+void Sed::fileReplace() {
+    std::ifstream ifs(filename);
+    std::string line;
+    std::string::size_type n;
 
-bool Sed::replaceContent(){
-	std::ifstream inputFile(filename);
-	if (!inputFile.is_open())
-	{
-		std::cerr << "Error: Could not open the input file." << std::endl;
-		return (false);
-	}
-	std::string outputFilename = filename + ".replace";
-	std::ofstream outputFile(outputFilename);
-	if (!outputFile.is_open())
-	{
-		std::cerr << "Error: Could not open the output file." << std::endl;
-		return (false);
-	}
-	std::string line;
-	if (s1.empty())
-	{
-		std::cerr << "Error: Empty string to search for." << std::endl;
-		return false;
-	}
-	while (std::getline(inputFile, line))
-	{
-		outputFile << replaceInLine(line) << std::endl;
-	}
-	inputFile.close();
-	outputFile.close();
-	return (true);
-}
+    if (ifs.fail()) {
+        std::cerr << "Failed to open file." << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
 
-std::string Sed::replaceInLine(const std::string &line)
-{
-	std::string result = line; // 引数の line をコピーして result に保存
-	size_t pos = 0;            // 置き換えを開始する位置を 0 に初期化
-	while ((pos = result.find(s1, pos)) != std::string::npos) // s1 を見つけた位置を pos に設定、見つからなければ終了
-	{
-		result = result.substr(0, pos) + s2 + result.substr(pos + s1.length()); // s1 を s2 に置き換える
-		pos += s2.length(); // 検索位置を進める
-	}
-	return result; // 置き換えた結果を返す
+    std::ofstream ofs(filename + ".replace");
+    if (ofs.fail()) {
+        std::cerr << "Failed to create/overwrite file: " << filename + ".replace" << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+    while (1) {
+        std::getline(ifs, line);
+        while (1) {
+            n = line.find(s1);
+            if (n == std::string::npos) {
+                break;
+            }
+            ofs << line.substr(0, n) << s2;
+            line = line.substr(n + s1.length());
+        }
+        ofs << line;
+        if (ifs.eof()) {
+            break;
+        }
+        ofs << std::endl;
+    }
 }

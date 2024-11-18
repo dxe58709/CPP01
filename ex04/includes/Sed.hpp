@@ -16,16 +16,15 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class Sed {
 	private:
 		std::string filename;
 		std::string s1;
 		std::string s2;
-		std::string replaceInLine(const std::string &line);
 
 	public:
-		Sed(const std::string &filename, const std::string &s1, const std:: string &s2);
-		bool replaceContent();
+		void fileReplace();
 };
 #endif
