@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: nsakanou <nsakanou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/02 01:48:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/09/17 16:31:51 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/11/23 18:51:57 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM = rm -rf
 
 SRCDIR = srcs
 SRC =   main.cpp \
-		Sed.cpp
+		Replace.cpp
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 

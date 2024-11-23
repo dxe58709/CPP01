@@ -3,38 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: nsakanou <nsakanou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 21:01:08 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/09/17 19:40:58 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:46:50 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#include "Replace.hpp"
 
 int main(int argc, char **argv)
 {
-	Sed fr;
+	Replace	fr;
 
-	if (argc != 4) {
-		std::cerr << "Invalid number of arguments" << std::endl;
-		std::cerr << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
-		return 1;
-	}
-	if (argv[1][0] == '\0' || argv[2][0] == '\0') {
-		std::cout << "Error: empty argument" << std::endl;
-		return 1;
-	}
-
-	std::string filename = argv[1];
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
-
+	fr.handleArgs(argc, argv);
+	fr.setArgs(argv[1], argv[2], argv[3]);
 	fr.fileReplace();
 	return 0;
 }
-
-// __attribute__((destructor)) void end(void)
-// {
-// 	system("leaks -q replace");
-// }

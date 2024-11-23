@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: nsakanou <nsakanou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 02:04:16 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/09/17 18:22:23 by nsakanou         ###   ########.fr       */
+/*   Created: 2024/11/23 18:44:58 by nsakanou          #+#    #+#             */
+/*   Updated: 2024/11/23 18:44:59 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <sstream>
 
-class Sed {
+class Replace {
 	private:
 		std::string filename;
 		std::string s1;
 		std::string s2;
 
 	public:
-		void fileReplace();
+		void	handleArgs(int argc, char **argv);
+		void	setArgs(char *argv1, char *argv2, char *argv3);
+		void	fileReplace();
 };
 #endif
